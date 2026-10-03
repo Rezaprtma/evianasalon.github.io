@@ -1,0 +1,330 @@
+/* ==========================================================================
+   Eviana Salon — base.css
+   Sumber tunggal kebenaran untuk Design System:
+   (1) Design tokens  (2) Reset  (3) Komponen bersama  (4) Aksesibilitas.
+   Di-link ke index.html & gallery.html SEBELUM stylesheet halaman.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS
+   -------------------------------------------------------------------------- */
+:root {
+    /* --- Warna (7 token inti + gradient brand) --- */
+    --color-gold: #d4af37;        /* brand emas — dekoratif, border, gradient */
+    --color-gold-deep: #8a6d1f;   /* emas kontras: teks di atas terang & isian + teks putih (>=4.5:1) */
+    --color-ink: #333333;         /* teks utama */
+    --color-muted: #666666;       /* teks sekunder (lulus AA di permukaan terang) */
+    --color-surface: #ffffff;     /* permukaan kartu */
+    --color-surface-alt: #f8f9fa; /* permukaan section berselang-seling */
+    --color-whatsapp: #25d366;    /* aksi konversi utama */
+    --color-dark: #333333;        /* permukaan gelap (footer, dll.) */
+    --gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-gold: linear-gradient(135deg, #d4af37 0%, #f7ef8a 100%);
+
+    /* --- Spacing (rem) --- */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 3rem;
+    --space-section: clamp(3rem, 7vw, 5rem); /* 48px -> 80px fluid, hilangkan padding kaku */
+
+    /* --- Radius --- */
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-pill: 999px;
+
+    /* --- Shadow --- */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 22px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.18);
+
+    /* --- Typography (5 token, fluid via clamp) --- */
+    --font-sans: "Segoe UI", Tahoma, Geneva, Verdana, system-ui, -apple-system, sans-serif;
+    --fs-hero: clamp(2rem, 6vw, 3.5rem);
+    --fs-h2: clamp(1.6rem, 4vw, 2.5rem);
+    --fs-h3: clamp(1.15rem, 2.6vw, 1.5rem);
+    --fs-body: clamp(1rem, 1.4vw, 1.1rem);
+    --fs-sm: 0.9rem;
+
+    /* --- Fokus --- */
+    --focus-color: var(--color-gold-deep);
+    --focus-ring: 0 0 0 3px rgba(138, 109, 31, 0.35);
+
+    /* Navbar */
+    --nav-height: 4.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET & BASE
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Judul section tidak pernah tertutup navbar fixed */
+    scroll-padding-top: calc(var(--nav-height) + 0.5rem);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--color-ink);
+    background: var(--color-surface);
+    /* Menggantikan hack lama: overflow-x:hidden berlapis + max-width:100vw.
+       `clip` tidak membuat scroll container & tidak menyertakan scrollbar. */
+    overflow-x: clip;
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;
+    font-weight: 700;
+    color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   3. KOMPONEN BERSAMA
+   -------------------------------------------------------------------------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 1.5rem);
+    width: 100%;
+}
+
+/* Section title pattern (dipakai kedua halaman) */
+.section-title {
+    text-align: center;
+    font-size: var(--fs-h2);
+    margin-bottom: var(--space-lg);
+    color: var(--color-ink);
+}
+
+/* --- Tombol (satu sumber untuk CTA, tombol galeri, tombol kembali) --- */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    background: var(--color-whatsapp);
+    color: var(--color-ink); /* #333 di atas #25d366 = 6.37:1 (AA) */
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: var(--radius-pill);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase; /* kapitalisasi via CSS, bukan hardcode di HTML */
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease,
+        background-color 0.2s ease, color 0.2s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+.cta-button.large {
+    padding: 1.05rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* Utility: permukaan gelap (hero, footer, CTA final). Dipakai beserta
+   --focus-color transisi agar :focus-visible emas tampak di atasnya. */
+.on-dark {
+    --focus-color: var(--color-gold);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    border-color: var(--color-gold);
+    color: var(--color-gold-deep);
+    box-shadow: none;
+}
+
+.cta-button.secondary:hover {
+    background: var(--color-gold);
+    color: var(--color-ink);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Varian emas (mis. tombol kembali di footer gelap) */
+.cta-button.gold {
+    background: var(--gradient-gold);
+    color: var(--color-ink);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.cta-button.gold:hover {
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.55);
+}
+
+.cta-button:focus-visible {
+    outline-color: var(--color-ink);
+}
+
+/* --- Footer bersama (dipakai index.html & gallery.html) --- */
+.site-footer {
+    background: var(--color-dark);
+    color: #ffffff;
+    padding: var(--space-lg) 0 var(--space-sm);
+    width: 100%;
+}
+
+.site-footer .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+
+.site-footer .footer-brand {
+    color: var(--color-gold);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: var(--space-xs);
+}
+
+.site-footer p {
+    color: #cccccc; /* 7.87:1 di atas #333 — lulus AA */
+}
+
+.site-footer h3 {
+    color: var(--color-gold);
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xs);
+}
+
+.site-footer .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.site-footer .contact-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #cccccc;
+    text-decoration: none;
+    min-height: 44px; /* target sentuh WCAG */
+    transition: color 0.2s ease;
+}
+
+.site-footer .contact-links a:hover {
+    color: var(--color-gold);
+}
+
+.site-footer .footer-bottom {
+    border-top: 1px solid #555555;
+    padding-top: var(--space-sm);
+    text-align: center;
+    color: #cccccc;
+}
+
+/* --------------------------------------------------------------------------
+   4. AKSESIBILITAS
+   -------------------------------------------------------------------------- */
+/* Indikator fokus eksplisit (sebelumnya nol aturan :focus-visible) */
+:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Fokus di atas permukaan gelap/gradient memakai emas agar terlihat */
+.site-footer :focus-visible,
+.on-dark :focus-visible,
+.cta-final :focus-visible,
+.hero :focus-visible {
+    outline-color: var(--color-gold);
+}
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Skip link: tampil saat menerima fokus keyboard */
+.visually-hidden:focus-visible {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0.75rem 1.5rem;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+    background: var(--color-ink);
+    color: #ffffff;
+    font-weight: 600;
+    z-index: 3000;
+    border-radius: 0 0 var(--radius-sm) 0;
+    text-decoration: none;
+}
+
+/* Hormati preferensi pengguna untuk mengurangi gerak */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}

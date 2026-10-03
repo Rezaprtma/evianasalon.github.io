@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Eviana Salon — jasa dekorasi pernikahan yang memukau dan penuh makna. Lebih dari 5 tahun pengalaman mewujudkan pernikahan impian Anda. Konsultasi gratis via WhatsApp.">
+    <meta name="theme-color" content="#d4af37">
+    <meta property="og:title" content="Eviana Salon - Dekorasi Pernikahan Impian Anda">
+    <meta property="og:description" content="Dekorasi pernikahan elegan, kreatif, dan penuh perhatian. Konsultasi gratis via WhatsApp.">
+    <meta property="og:type" content="website">
     <title>Eviana Salon - Dekorasi Pernikahan Impian Anda</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
+    <a class="visually-hidden" href="#home">Lewati ke konten utama</a>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Navigasi utama">
         <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Eviana Salon</h2>
-            </div>
+            <a class="nav-logo" href="#home">Eviana Salon</a>
             <div class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link">Beranda</a>
                 <a href="#about" class="nav-link">Tentang Kami</a>
@@ -22,219 +28,249 @@
                 <a href="#process" class="nav-link">Proses</a>
                 <a href="#contact" class="nav-link">Kontak</a>
             </div>
-            <div class="nav-toggle" id="navToggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Buka menu navigasi" aria-controls="navMenu" aria-expanded="false">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
+    <div class="nav-backdrop" id="navBackdrop" hidden></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Wujudkan Pernikahan Impian Anda</h1>
-            <p class="hero-subtitle">Kami menghadirkan dekorasi pernikahan yang memukau dan penuh makna, sesuai dengan konsep impian Anda.</p>
-        </div>
-        <div class="hero-overlay"></div>
-    </section>
+    <main id="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Wujudkan Pernikahan Impian Anda</h1>
+                <p class="hero-subtitle">Kami menghadirkan dekorasi pernikahan yang memukau dan penuh makna, sesuai dengan konsep impian Anda.</p>
+                <div class="hero-actions">
+                    <a href="https://wa.me/62895611125465" target="_blank" rel="noopener noreferrer" class="cta-button large">
+                        <i class="fab fa-whatsapp" aria-hidden="true"></i> Konsultasi Gratis
+                    </a>
+                </div>
+            </div>
+            <div class="hero-overlay" aria-hidden="true"></div>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">Mengapa Memilih Eviana Salon?</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Dengan pengalaman lebih dari 5 tahun dalam industri dekorasi pernikahan, kami memiliki passion untuk menciptakan momen spesial yang tak terlupakan. Setiap detail kami perhatikan dengan seksama untuk mewujudkan visi Anda.</p>
-                    <div class="features">
-                        <div class="feature">
-                            <i class="fas fa-star"></i>
-                            <span>Berpengalaman</span>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">Mengapa Memilih Eviana Salon?</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Dengan pengalaman lebih dari 5 tahun dalam industri dekorasi pernikahan, kami memiliki passion untuk menciptakan momen spesial yang tak terlupakan. Setiap detail kami perhatikan dengan seksama untuk mewujudkan visi Anda.</p>
+                        <div class="features">
+                            <div class="feature">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                <span>Berpengalaman</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-palette" aria-hidden="true"></i>
+                                <span>Kreatif &amp; Inovatif</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-heart" aria-hidden="true"></i>
+                                <span>Penuh Perhatian</span>
+                            </div>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-palette"></i>
-                            <span>Kreatif & Inovatif</span>
+                    </div>
+                    <div class="about-panel">
+                        <div class="about-stat">
+                            <span class="stat-value">200+</span>
+                            <span class="stat-label">Pernikahan terselesaikan</span>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-heart"></i>
-                            <span>Penuh Perhatian</span>
+                        <div class="about-stat">
+                            <span class="stat-value">5+</span>
+                            <span class="stat-label">Tahun pengalaman</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-value">50+</span>
+                            <span class="stat-label">Konsep dekorasi pilihan</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Kepuasan pelanggan</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-<!-- Gallery Section -->
-<section id="gallery" class="gallery">
-    <div class="container">
-        <h2 class="section-title">Galeri Karya Kami</h2>
-        <p class="section-subtitle">Spesialis Dekorasi untuk Pernikahan Anda</p>
-        
-        <div class="gallery-grid">
-            <!-- Item 1 - Ganti dengan foto Anda -->
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="images/gambar1.jpg" alt="Dekorasi Pernikahan 1" class="gallery-photo">
-                </div>
-            </div>
-            
-            <!-- Item 2 -->
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="images/gambar2.jpg" alt="Dekorasi Pernikahan 2" class="gallery-photo">
-                </div>
-            </div>
-            
-            <!-- Item 3 -->
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="images/gambar3.jpg" alt="Dekorasi Pernikahan 3" class="gallery-photo">
-                </div>
-            </div>
-            
-            <!-- Item 4 -->
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="images/gambar4.jpg" alt="Dekorasi Pernikahan 4" class="gallery-photo">
-                </div>
-            </div>
-            
-            <!-- Item 5 -->
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="images/gambar5.jpg" alt="Dekorasi Pernikahan 5" class="gallery-photo">
-                </div>
-            </div>
-            
-            <!-- Item 6 -->
-            <div class="gallery-item">
-                <div class="gallery-image">
-                    <img src="images/gambar6.jpg" alt="Dekorasi Pernikahan 6" class="gallery-photo">
-                </div>
-            </div>
-        </div>
-        
-        <div class="gallery-cta">
-            <a href="gallery.html" class="cta-button secondary">
-                <i class="fas fa-images"></i> LIHAT GALERI LENGKAP
-            </a>
-        </div>
-    </div>
-</section>
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2 class="section-title">Galeri Karya Kami</h2>
+                <p class="section-subtitle">Spesialis dekorasi untuk pernikahan Anda</p>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">Kata Mereka yang Telah Mempercayakan Acaranya</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Dekorasinya sangat cantik dan melebihi ekspektasi! Timnya sangat profesional dan perhatian dengan detail."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="images/gambar1.jpg" alt="Dekorasi pernikahan bergaya elegan dengan rangkaian bunga putih" class="gallery-photo" width="4096" height="3072" loading="lazy" decoding="async">
                         </div>
-                        <div class="author-info">
-                            <h4>Budi & Ani</h4>
-                            <span>Wedding, April 2024</span>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="images/gambar2.jpg" alt="Dekorasi pelaminan mewah dengan nuansa bunga pastel" class="gallery-photo" width="4096" height="3072" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="images/gambar3.jpg" alt="Dekorasi meja resepsi dengan lilin dan bunga segar" class="gallery-photo" width="4160" height="3120" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="images/gambar4.jpg" alt="Rangkaian dekorasi altar pernikahan outdoor" class="gallery-photo" width="4160" height="3120" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="images/gambar5.jpg" alt="Dekorasi panggung pernikahan dengan pencahayaan hangat" class="gallery-photo" width="4160" height="3120" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-image">
+                            <img src="images/gambar6.jpg" alt="Dekorasi aisle pernikahan dengan jalan bunga" class="gallery-photo" width="4160" height="3120" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Proses dari konsultasi sampai eksekusi sangat smooth. Hasil dekorasi persis seperti yang kami inginkan!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>Rina & Doni</h4>
-                            <span>Wedding, Maret 2024</span>
-                        </div>
-                    </div>
+
+                <div class="gallery-cta">
+                    <a href="gallery.html" class="cta-button secondary">
+                        <i class="fas fa-images" aria-hidden="true"></i> Lihat Galeri Lengkap
+                    </a>
                 </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Pelayanan sangat memuaskan dan harga bersaing. Recommended banget untuk yang mau wedding!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2 class="section-title">Kata Mereka yang Telah Mempercayakan Acaranya</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating" role="img" aria-label="Rating 5 dari 5 bintang">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
                         </div>
-                        <div class="author-info">
-                            <h4>Sari & Andi</h4>
-                            <span>Wedding, Februari 2024</span>
+                        <div class="testimonial-content">
+                            <p>"Dekorasinya sangat cantik dan melebihi ekspektasi! Timnya sangat profesional dan perhatian dengan detail."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" aria-hidden="true">BA</div>
+                            <div class="author-info">
+                                <h3>Budi &amp; Ani</h3>
+                                <span>Wedding, April 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating" role="img" aria-label="Rating 5 dari 5 bintang">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"Proses dari konsultasi sampai eksekusi sangat lancar. Hasil dekorasi persis seperti yang kami inginkan!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" aria-hidden="true">RD</div>
+                            <div class="author-info">
+                                <h3>Rina &amp; Doni</h3>
+                                <span>Wedding, Maret 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating" role="img" aria-label="Rating 5 dari 5 bintang">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                        </div>
+                        <div class="testimonial-content">
+                            <p>"Pelayanan sangat memuaskan dan harga bersaing. Sangat direkomendasikan untuk yang sedang menyiapkan pernikahan!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar" aria-hidden="true">SA</div>
+                            <div class="author-info">
+                                <h3>Sari &amp; Andi</h3>
+                                <span>Wedding, Februari 2024</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Process Section -->
-    <section id="process" class="process">
-        <div class="container">
-            <h2 class="section-title">Bagaimana Cara Memulainya?</h2>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Konsultasi</h3>
-                        <p>Hubungi kami untuk diskusikan kebutuhan Anda</p>
+        <!-- Process Section -->
+        <section id="process" class="process">
+            <div class="container">
+                <h2 class="section-title">Bagaimana Cara Memulainya?</h2>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number" aria-hidden="true">1</div>
+                        <div class="step-content">
+                            <h3>Konsultasi</h3>
+                            <p>Hubungi kami untuk mendiskusikan kebutuhan dan konsep Anda</p>
+                        </div>
                     </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Booking</h3>
-                        <p>Membuat persetujuan dan validasi tanggal</p>
+                    <div class="step">
+                        <div class="step-number" aria-hidden="true">2</div>
+                        <div class="step-content">
+                            <h3>Booking</h3>
+                            <p>Membuat persetujuan dan validasi tanggal acara</p>
+                        </div>
                     </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Eksekusi</h3>
-                        <p> Kami wujudkan dekorasi impian Anda di hari-H</p>
+                    <div class="step">
+                        <div class="step-number" aria-hidden="true">3</div>
+                        <div class="step-content">
+                            <h3>Eksekusi</h3>
+                            <p>Kami wujudkan dekorasi impian Anda di hari-H</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="cta-final">
-        <div class="container">
-            <h2>Siap Mewujudkan Pernikahan Impian Anda?</h2>
-            <p>Hubungi kami sekarang untuk konsultasi gratis dan diskusikan ide Anda. Tim kami siap membantu.</p>
-            <a href="https://wa.me/62895611125465" target="_blank" class="cta-button large">
-                <i class="fab fa-whatsapp"></i> HUBUNGI KAMI SEKARANG
-            </a>
-        </div>
-        <div class="cta-overlay"></div>
-    </section>
+        <!-- CTA Section -->
+        <section id="contact" class="cta-final">
+            <div class="container">
+                <h2>Siap Mewujudkan Pernikahan Impian Anda?</h2>
+                <p>Hubungi kami sekarang untuk konsultasi gratis dan diskusikan ide Anda. Tim kami siap membantu.</p>
+                <a href="https://wa.me/62895611125465" target="_blank" rel="noopener noreferrer" class="cta-button large">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> Hubungi Kami Sekarang
+                </a>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer site-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
-                    <h3>Eviana Salon</h3>
-                    <p>Mewujudkan dekorasi pernikahan impian Anda </p>
+                    <p class="footer-brand">Eviana Salon</p>
+                    <p>Mewujudkan dekorasi pernikahan impian Anda.</p>
                 </div>
                 <div class="footer-contact">
-                    <h4>Kontak Kami</h4>
+                    <h3>Kontak Kami</h3>
                     <div class="contact-links">
-                        <a href="https://wa.me/62895611125465">
-                            <i class="fab fa-whatsapp"></i> 0895-6111-25465
+                        <a href="https://wa.me/62895611125465" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> 0895-6111-25465
                         </a>
                         <a href="mailto:evianasalon24@gmail.com">
-                            <i class="fas fa-envelope"></i> evianasalon24@gmail.com
+                            <i class="fas fa-envelope" aria-hidden="true"></i> evianasalon24@gmail.com
                         </a>
-                        <a href="https://www.instagram.com/evianasalon?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-                            <i class="fab fa-instagram"></i> @evianasalon
+                        <a href="https://www.instagram.com/evianasalon" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-instagram" aria-hidden="true"></i> @evianasalon
                         </a>
                     </div>
                 </div>
@@ -245,6 +281,6 @@
         </div>
     </footer>
 
-    <script src="/js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
